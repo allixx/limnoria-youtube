@@ -4,3 +4,5 @@ Config:
         supybot.plugins.Youtube.youtubeSnarfer (default: True) ->
 		Enable/Disable youtube snarfer.
 
+        supybot.plugins.Youtube.youtubeDataApiKey (default: '') ->
+		YouTube Data API v3 key.

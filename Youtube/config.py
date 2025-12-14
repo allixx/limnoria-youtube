@@ -30,27 +30,39 @@
 
 import supybot.conf as conf
 import supybot.registry as registry
+
 try:
     from supybot.i18n import PluginInternationalization
-    _ = PluginInternationalization('Gavyoutube')
+
+    _ = PluginInternationalization("Youtube")
 except:
     _ = lambda x: x
 
 
 def configure(advanced):
     from supybot.questions import yn
-    conf.registerPlugin('Gavyoutube', True)
-    if not yn(_("""This plugin offers a snarfer that will try to fetch info about
+
+    conf.registerPlugin("Youtube", True)
+    if not yn(
+        _("""This plugin offers a snarfer that will try to fetch info about
              Youtube videos that it sees in the channel. Would you like this
-             snarfer to be enabled?"""), default=True):
+             snarfer to be enabled?"""),
+        default=True,
+    ):
         Youtube.youtubeSnarfer.setValue(False)
 
 
-Youtube = conf.registerPlugin('Gavyoutube')
+Youtube = conf.registerPlugin("Youtube")
 
-conf.registerChannelValue(Youtube, 'youtubeSnarfer',
-                          registry.Boolean(True,
-                                           _("""Enable Youtube snarfer.""")))
+conf.registerChannelValue(
+    Youtube,
+    "youtubeSnarfer",
+    registry.Boolean(True, _("""Enable Youtube snarfer.""")),
+)
+
+conf.registerGlobalValue(
+    Youtube, "youtubeDataApiKey", registry.String("", _("""YouTube Data API v3 key"""))
+)
 
 
 # vim:set shiftwidth=4 tabstop=4 expandtab textwidth=79:

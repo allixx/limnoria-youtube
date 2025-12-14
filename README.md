@@ -15,17 +15,8 @@ https://developers.google.com/youtube/registering_an_application
 This plugin will only access public information, so you only need an API key. 
 You don't need to worry about OAuth credentials.
 
-It's a wise idea to run this command from your local git repo before making 
-any changes:
-
-```
-git update-index --skip-worktree Youtube/key.api
-```
-
-This will ensure you don't accidentally publish your API key 
-
-Place the contents of your API key into the `key.api` file within the 
-`Youtube` folder, then copy the Youtube folder into your bot's Plugins folder.
+Save your API key in `supybot.plugins.youtube.youtubeDataApiKey` Limnoria config
+value. By default it's empty.
 
 ## Special thanks
 

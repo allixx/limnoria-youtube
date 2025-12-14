@@ -36,13 +36,13 @@ import supybot
 import supybot.world as world
 
 __version__ = "1.0"
-__author__ = supybot.Author('Gaven Royer', 'jeans', 'gavroyer@gmail.com')
+__author__ = supybot.Author("Gaven Royer", "jeans", "gavroyer@gmail.com")
 __contributors__ = {}
-__url__ = 'https://github.com/skgsergio/Limnoria-plugins'
+__url__ = "https://github.com/skgsergio/Limnoria-plugins"
 
 from . import config
 from . import plugin
-from imp import reload
+from importlib import reload
 
 reload(config)
 reload(plugin)
