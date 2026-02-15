@@ -119,6 +119,8 @@ class Youtube(callbacks.PluginRegexp):
         elif query.hostname in ("www.youtube.com", "youtube.com"):
             if query.path == "/watch":
                 yid = parse_qs(query.query)["v"][0]
+            elif query.path.startswith("/live/"):
+                yid = query.path.split("/")[-1]
             elif query.path[:7] == "/embed/" or query.path[:3] == "/v/":
                 yid = query.path.split("/")[2]
         elif query.hostname == "m.youtube.com" and query.path == "/watch":
